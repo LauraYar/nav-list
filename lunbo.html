@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>仿美团电影轮播图</title>
+    <link rel="stylesheet" href="./css/lunbo.css" />
+    <link rel="stylesheet" href="./css/normalize.css" />
+  </head>
+  <body>
+    <div class="movie">
+      <div class="movie-center">
+        <!-- 电影介绍 -->
+        <div class="movie-hd">
+          <ul id="movie-tab">
+            <li>猫眼电影</li>
+            <li>
+              正在热映
+              <div class="triangle"></div>
+            </li>
+            <li>
+              即将上映
+              <div class="triangle displaynone"></div>
+            </li>
+            <li>全部&gt;</li>
+          </ul>
+        </div>
+
+        <div id="movie-show">
+          <button id="arr_l">&lt;</button>
+          <button id="arr_r">&gt;</button>
+          <div class="moviehot" style="display: block" id="nowhot">
+            <img src="./images/mm1.jpg" alt="电影" />
+            <img src="./images/mm2.jpg" alt="电影" />
+            <img src="./images/mm3.jpg" alt="电影" />
+            <img src="./images/mm4.jpg" alt="电影" />
+            <img src="./images/mm5.jpg" alt="电影" />
+            <img src="./images/mm6.jpg" alt="电影" />
+            <img src="./images/mm7.jpg" alt="电影" />
+            <img src="./images/mm8.jpg" alt="电影" />
+            <img src="./images/mm9.jpg" alt="电影" />
+            <img src="./images/mm10.jpg" alt="电影" />
+            <img src="./images/mm16.jpg" alt="电影" />
+            <img src="./images/mm17.jpg" alt="电影" />
+            <img src="./images/mm18.jpg" alt="电影" />
+            <img src="./images/mm11.jpg" alt="电影" />
+            <img src="./images/mm12.jpg" alt="电影" />
+          </div>
+          <div class="moviehot" style="display: none" id="quick">
+            <img src="./images/mm11.jpg" alt="电影" />
+            <img src="./images/mm12.jpg" alt="电影" />
+            <img src="./images/mm13.jpg" alt="电影" />
+            <img src="./images/mm14.jpg" alt="电影" />
+            <img src="./images/mm15.jpg" alt="电影" />
+            <img src="./images/mm16.jpg" alt="电影" />
+            <img src="./images/mm17.jpg" alt="电影" />
+            <img src="./images/mm18.jpg" alt="电影" />
+            <img src="./images/mm19.jpg" alt="电影" />
+            <img src="./images/mm20.jpg" alt="电影" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="./js/animate.js"></script>
+  <script src="./js/lunbo.js"></script>
+</html>

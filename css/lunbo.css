@@ -1,0 +1,103 @@
+.movie-center{
+  position: relative;
+  width: 1190px;
+  height: 350px;
+  margin: 50px auto;
+  border:6px solid green;
+ 
+}
+.movie-hd{
+	width: 1188px;
+	height:42px;
+	border:1px solid #FB3F60;
+	border-radius:5px 5px 0px 0px;
+  background-color: #FB3F60;
+	position:relative;
+}
+
+#movie-tab li{
+	width:80px;
+	height:43px;
+	line-height: 43px;
+	color:#fff;
+	margin-left:20px;
+	float:left;
+	font-size :16px;
+	position: relative;
+  cursor: pointer;
+}
+#movie-tab li:first-child{
+	font-size:20px;
+	font-weight: 700;
+}
+#movie-tab li:last-child{
+	font-size:16px;
+	float:right;
+	width:60px;
+}
+
+/* 三角形相对于li定位 */
+.triangle{
+  position: absolute;
+  top: 26px;
+  left: 24px;
+  width: 16px;
+  height: 16px;
+  clip-path: polygon(100% 100%,50% 0,0 100%);
+  background: #fff;
+}
+/* 给第二个三角形多设置一个类名displaynone使之先隐藏 */
+.displaynone{
+  display: none;
+}
+
+/* movie-show图片部分，设宽高,这里面设置display;flex 无效，会与display：block发生冲突，要设置一个大宽度，不然会默认父盒子1190宽度*/
+#movie-show .moviehot{
+	position: absolute;
+	width: 3486px;
+	height: 300px;
+	border:4px solid blue;
+}
+/* 左右按钮相对于整个movie盒子定位 */
+#arr_l{
+	width:40px;
+	height:40px;
+	position:absolute;
+	top:170px;
+	left:15px;
+	border:none;
+	background-color:#222;
+	border-radius: 50%;
+	text-align:center;
+	line-height: 35px;
+	font-size:30px;
+	color:#eee;
+	opacity: 0.8;
+	z-index:8;
+}
+#arr_r{
+	width:40px;
+	height:40px;
+	float:right;
+	position:absolute;
+	top:170px;
+	right:15px;
+	background-color:#222;
+	border:none;
+	border-radius: 50%;
+	text-align:center;
+	line-height: 35px;
+	font-size:30px;
+	color:#eee;
+	opacity: 0.8;
+	z-index:8;
+}
+#movie-show .moviehot img{
+	margin-right: 16px;
+  margin-top: 6px;
+}
+#movie-show .moviehot img:last-child{
+	margin-right: 0px;
+  margin-top: 6px;
+}
+
