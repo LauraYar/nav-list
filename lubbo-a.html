@@ -33,7 +33,6 @@
         width: 30px;
         height: 40px;
         border: 0;
-
         background: rgba(99, 82, 82, 0.4);
         z-index: 999;
       }
@@ -56,14 +55,32 @@
         position: absolute;
         top: 0;
         left: 0;
+        /* z-index: 100; */
+      }
+      .circle {
+        position: absolute;
+        bottom: 8px;
+        left: 100px;
+        z-index: 999;
+      }
+      .circle > li {
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        font-size: 12px;
+        text-align: center;
+        float: left;
+        border-radius: 50%;
+        margin: 4px;
+        background: #fff;
+        /* z-index: 999; */
       }
     </style>
     <script>
       window.onload = function () {
-        let img = document.getElementById('move-lunbo').children;
-        console.log(img.length); // // 获取所有li图片
+        let img = document.getElementById('move-lunbo').children; // // 获取所有li图片
+        let ol = document.querySelector('.circle');
         let index = 0; //索引号
-
         let change = setInterval(function () {
           index++;
           if (index == img.length) {
@@ -76,7 +93,7 @@
           }
           img[index].style.cssText = 'z-index:100;'; //实现了轮播效果，此时只能循环一轮，index到7的时候，没有第八张图片
         }, 2000);
-
+        // 2.点击左右按钮切换图片
         let arr_l = document.getElementById('arr_l');
         let arr_r = document.getElementById('arr_r');
         let focus = document.querySelector('.focus');
@@ -108,8 +125,19 @@
           }
           img[index].style.cssText = 'z-index:100;';
         });
+        arr_l.addEventListener('click', function () {
+          index++;
+          if (index == img.length-1) {
+            //索引号到7时就让索引号为0,一定要写到计时器事件里
+            index = 0;
+          }
+          for (let i = 0; i < img.length; i++) {
+            img[i].style.cssText = 'z-index:0;';
+            //所有的点击图片层级都变低（一个个循环变低）
+          }
+          img[index].style.cssText = 'z-index:100;';
+        });
       };
-      
     </script>
   </head>
   <body>
