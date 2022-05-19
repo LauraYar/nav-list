@@ -79,6 +79,35 @@
 
         let arr_l = document.getElementById('arr_l');
         let arr_r = document.getElementById('arr_r');
+        let focus = document.querySelector('.focus');
+
+        focus.addEventListener('mouseenter', function () {
+          clearInterval(change);
+        });
+        focus.addEventListener('mouseleave', function () {
+          change = setInterval(function () {
+            index++;
+            if (index == img.length) {
+              index = 0;
+            }
+            for (let i = 0; i < img.length; i++) {
+              img[i].style.cssText = 'z-index:0;';
+            }
+            img[index].style.cssText = 'z-index:100;';
+          }, 2000);
+        });
+        arr_l.addEventListener('click', function () {
+          index--;
+          if (index == 0) {
+            //索引号到7时就让索引号为0,一定要写到计时器事件里
+            index = img.length - 1;
+          }
+          for (let i = 0; i < img.length; i++) {
+            img[i].style.cssText = 'z-index:0;';
+            //所有的点击图片层级都变低（一个个循环变低）
+          }
+          img[index].style.cssText = 'z-index:100;';
+        });
       };
       
     </script>
@@ -100,7 +129,15 @@
         <li><img src="./images/6.png" alt="" width="400" height="200" /></li>
         <li><img src="./images/7.png" alt="" width="400" height="200" /></li>
       </ul>
-      <ol class="circle"></ol>
+      <ol class="circle">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+      </ol>
     </div>
   </body>
 </html>
