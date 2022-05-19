@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>轮播图-通过z-index显示隐藏，无滑动效果</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      li {
+        list-style: none;
+      }
+      body {
+        width: 100vw;
+        height: 100vh;
+        background: linear-gradient(#1d2b48, #4f4266) no-repeat;
+      }
+
+      .focus {
+        position: relative;
+        width: 400px;
+        height: 200px;
+        margin: 50px auto;
+        cursor: pointer;
+        border: 1px solid pink;
+      }
+      button {
+        position: absolute;
+        top: 45%;
+        width: 30px;
+        height: 40px;
+        border: 0;
+
+        background: rgba(99, 82, 82, 0.4);
+        z-index: 999;
+      }
+      button:nth-child(1) {
+        border-radius: 0 100% 100% 0;
+        left: 0;
+      }
+      button:nth-child(2) {
+        border-radius: 100% 0 0 100%;
+        right: 0;
+      }
+
+      .lunbo {
+        /* ul会继承父盒子focus的宽高，如果让图片并排，就要给ul加宽，ul宽度是父盒子focus的7倍 */
+        width: 100%;
+      }
+      .lunbo > li {
+        /*1.不滚动盒子就给每个图片li相对于父父盒子focus绝对定位position: absolute;,给按钮加层级,显示的是第七张图片*/
+        /* 2.按钮移动距离就要把li并排 */
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    </style>
+    <script>
+      window.onload = function () {
+        let img = document.getElementById('move-lunbo').children;
+        console.log(img.length); // // 获取所有li图片
+        let index = 0; //索引号
+
+        let change = setInterval(function () {
+          index++;
+          if (index == img.length) {
+            //索引号到7时就让索引号为0,一定要写到计时器事件里
+            index = 0;
+          }
+          for (let i = 0; i < img.length; i++) {
+            //涉及到给每个图片都要设置属性（设层级），先遍历
+            img[i].style.cssText = 'z-index:0;'; //所有的点击图片层级都变低（一个个循环变低）
+          }
+          img[index].style.cssText = 'z-index:100;'; //实现了轮播效果，此时只能循环一轮，index到7的时候，没有第八张图片
+        }, 2000);
+
+        let arr_l = document.getElementById('arr_l');
+        let arr_r = document.getElementById('arr_r');
+      };
+      
+    </script>
+  </head>
+  <body>
+    <div class="focus">
+      <button id="arr_l">
+        <img src="./images/icon-left.png" alt="" width="20" height="20" />
+      </button>
+      <button id="arr_r">
+        <img src="./images/icon-right.png" alt="" width="20" height="20" />
+      </button>
+      <ul class="lunbo" id="move-lunbo">
+        <li><img src="./images/1.png" alt="" width="400" height="200" /></li>
+        <li><img src="./images/2.png" alt="" width="400" height="200" /></li>
+        <li><img src="./images/3.png" alt="" width="400" height="200" /></li>
+        <li><img src="./images/4.png" alt="" width="400" height="200" /></li>
+        <li><img src="./images/5.png" alt="" width="400" height="200" /></li>
+        <li><img src="./images/6.png" alt="" width="400" height="200" /></li>
+        <li><img src="./images/7.png" alt="" width="400" height="200" /></li>
+      </ul>
+      <ol class="circle"></ol>
+    </div>
+  </body>
+</html>
